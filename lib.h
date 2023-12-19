@@ -1,0 +1,1 @@
+typedef int func_type(int A);
