@@ -527,7 +527,7 @@ set "PAR1=%~1"
 REM Mandatory, add to PATH the binary directory of compiler gcc 32 bits included in MSYS2. You can adapt this directory at your personal software environment.
 SET PATH=C:\msys64\mingw32\bin;C:\GetGnuWin32\bin;%PATH%
 gcc --version | grep gcc
-if PAR1 == "TWO" (
+if "%PAR1%" == "TWO" (
 REM Options used with gcc/LLVM compiler 64 bits (very similar with syntax of gcc compiler) :
 REM 	-Wall									-> set all warning during compilation
 REM		-c 										-> compile and assemble only, not call of linker
@@ -603,7 +603,7 @@ set "PAR1=%~1"
 REM      Mandatory, add to PATH the binary directory of compiler gcc 64 bits included in MSYS2. You can adapt this directory at your personal software environment.
 SET PATH=C:\msys64\mingw64\bin;C:\GetGnuWin32\bin;%PATH%
 gcc --version | grep gcc
-if PAR1 == "TWO" (
+if "%PAR1%" == "TWO" (
 REM Options used with gcc/LLVM compiler 64 bits (very similar with syntax of gcc compiler) :
 REM 	-Wall									-> set all warning during compilation
 REM		-c 										-> compile and assemble only, not call of linker
@@ -961,7 +961,7 @@ DLL detaching from process...
 Le résultat produit en deux passes :
 
 "compile_link_dll_MSYS2_OK.bat TWO ALL"
- Lancement du batch de generation d'une DLL et deux tests de celle-ci avec CLANG 32 bits ou 64 bits de MSYS2
+ Lancement du batch de generation d'une DLL et deux tests de celle-ci avec GCC 32 bits ou 64 bits de MSYS2
   *********  Quelques caracteristiques du systeme hebergeant l'environnement de developpement.   ***********
 Name
 Microsoft Windows 11 Famille|C:\WINDOWS|\Device\Harddisk1\Partition3
@@ -974,6 +974,9 @@ OSArchitecture
 
   **********      Pour cette generation le premier parametre vaut "TWO" et le deuxieme "ALL".     *************
   ******************            Compilation de la DLL en mode 32 bits        *******************
+gcc (Rev3, Built by MSYS2 project) 13.2.0
+  ***************       Compilation de la DLL avec MSYS2 / MINGW32 - GCC 32 bits              *****************
+  ***************          Edition de liens de la DLL avec MSYS2 / MINGW32 - GCC 32 bits        *******************
 EXPORTS
     Adddbl @1
     Addint @2
@@ -986,7 +989,7 @@ EXPORTS
     Squarint @9
     Subdbl @10
     Subint @11
-  ************                                   Dump des sysboles exportes de la DLL dll_core.dll                                        *************
+  ***************              Listage des fonctions exportees de la DLL              *******************
  * [dll_core.dll] Found PE image
 ;
 ; Definition file of dll_core.dll
@@ -1056,6 +1059,9 @@ La division de 16.9 par 7.3 vaut 2.31507.             (from script python testdl
 Le carre de 7.3 par 7.3 vaut 53.29.                   (from script python testdll_cdecl.py)
 DLL detaching from process...
   ******************          Compilation de la DLL en mode 64 bits        *******************
+gcc (Rev3, Built by MSYS2 project) 13.2.0
+  ***************       Compilation de la DLL avec MSYS2 / MINGW64 - GCC 64 bits                *****************
+  ***************          Edition de liens de la DLL avec MSYS2  gcc 64 bits        *******************
 EXPORTS
     Adddbl @1
     Addint @2
@@ -1068,7 +1074,7 @@ EXPORTS
     Squarint @9
     Subdbl @10
     Subint @11
-  ************                                   Dump des sysboles exportes de la DLL dll_core64.dll                           *************
+  ***************              Listage des fonctions exportees de la DLL dll_core64.dll            *******************
  * [dll_core64.dll] Found PE+ image
 ;
 ; Definition file of dll_core64.dll
@@ -1137,7 +1143,7 @@ La multiplication de 16.9 par 7.3 vaut 123.37.        (from script python testdl
 La division de 16.9 par 7.3 vaut 2.31507.             (from script python testdll_cdecl.py)
 Le carre de 7.3 par 7.3 vaut 53.29.                   (from script python testdll_cdecl.py)
 DLL detaching from process...
-        Fin de la generation de la DLL et des tests avec CLANG 32 bits ou 64 bits inclus dans MSYS2 64 bits
+        Fin de la generation de la DLL et des tests avec GCC 32 bits ou 64 bits inclus dans MSYS2 64 bits
 
 Avec ces très bons résultats, je m'arrête ici pour ce bilan qui devait aller au bout des tests avec des DLL générées par 
 le compilateur CGCC de MingW32 ou MingW64 inclus dans MSYS2. 

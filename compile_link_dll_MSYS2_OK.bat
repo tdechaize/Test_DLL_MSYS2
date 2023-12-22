@@ -49,7 +49,7 @@ set "PAR1=%~1"
 REM Mandatory, add to PATH the binary directory of compiler gcc 32 bits included in MSYS2. You can adapt this directory at your personal software environment.
 SET PATH=C:\msys64\mingw32\bin;C:\GetGnuWin32\bin;%PATH%
 gcc --version | grep gcc
-if PAR1 == "TWO" (
+if "%PAR1%" == "TWO" (
 REM Options used with gcc/LLVM compiler 64 bits (very similar with syntax of gcc compiler) :
 REM 	-Wall									-> set all warning during compilation
 REM		-c 										-> compile and assemble only, not call of linker
@@ -125,7 +125,7 @@ set "PAR1=%~1"
 REM      Mandatory, add to PATH the binary directory of compiler gcc 64 bits included in MSYS2. You can adapt this directory at your personal software environment.
 SET PATH=C:\msys64\mingw64\bin;C:\GetGnuWin32\bin;%PATH%
 gcc --version | grep gcc
-if PAR1 == "TWO" (
+if "%PAR1%" == "TWO" (
 REM Options used with gcc/LLVM compiler 64 bits (very similar with syntax of gcc compiler) :
 REM 	-Wall									-> set all warning during compilation
 REM		-c 										-> compile and assemble only, not call of linker
